@@ -48,7 +48,7 @@ class Setting extends \yii\base\Component {
 				Yii::$app->getDb ()->getQueryBuilder()->addPrimaryKey( 'category_key', "{{%" . $this->settingTable . "}}", 'category,key' )
 			)->execute ();
 		}
-		$this->on (Application::EVENT_AFTER_REQUEST, [$this, 'commit']);
+		Yii::$app->on (Application::EVENT_AFTER_REQUEST, [$this, 'commit']);
 	}
 
 	/**
